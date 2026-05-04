@@ -95,6 +95,24 @@ if LDAP_ENABLED:
             "django_auth_ldap.backend.LDAPBackend"
         ]
 
+        # Optional debug logging for django_auth_ldap.
+        # Set LDAP_LOG_LEVEL=DEBUG in .env to see bind attempts, group queries,
+        # and the reason for each login failure. Remove or set to WARNING in production.
+        _ldap_log_level = os.getenv("LDAP_LOG_LEVEL", "").upper() or "WARNING"
+        LOGGING = {
+            "version": 1,
+            "disable_existing_loggers": False,
+            "handlers": {
+                "console": {"class": "logging.StreamHandler"},
+            },
+            "loggers": {
+                "django_auth_ldap": {
+                    "handlers": ["console"],
+                    "level": _ldap_log_level,
+                },
+            },
+        }
+
     except ImportError:
         logger.warning(
             "LDAP_SERVER_URI is set but django-auth-ldap is not installed. "
