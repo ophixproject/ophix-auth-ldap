@@ -11,6 +11,17 @@ login.
 
 ## Installation
 
+`python-ldap` (a dependency of `django-auth-ldap`) is a C extension and requires
+OpenLDAP development headers to be installed at the OS level before running `pip install`.
+
+On Debian/Ubuntu:
+
+```bash
+sudo apt install libldap2-dev libsasl2-dev
+```
+
+Then:
+
 ```bash
 pip install ophix-auth-ldap
 ```
