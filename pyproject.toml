@@ -12,10 +12,30 @@ license = "MIT"
 authors = [
     { name = "Ophix Project" }
 ]
+keywords = ["django", "ophix", "ldap", "active directory", "authentication"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: System :: Systems Administration",
+]
 dependencies = [
-    "ophix-server-base>=2026.05.04.01",
+    "ophix-server-base>=2026.05.26.01",
     "django-auth-ldap>=4.0",
 ]
+
+[project.urls]
+Homepage = "https://ophix.io"
+Documentation = "https://github.com/ophixproject/ophix-auth-ldap#readme"
+Source = "https://github.com/ophixproject/ophix-auth-ldap"
 
 [project.entry-points."ophix.plugins"]
 ophix_auth_ldap = "ophix_auth_ldap"
