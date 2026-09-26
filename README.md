@@ -36,10 +36,12 @@ pip install ophix-auth-ldap
 | `LDAP_BIND_DN` | — | Bind DN for directory queries |
 | `LDAP_BIND_PASSWORD` | — | Bind password |
 | `LDAP_USER_SEARCH_BASE` | — | Base DN for user search (e.g. `OU=Users,DC=example,DC=com`) |
+| `LDAP_GROUP_SEARCH_BASE` | *(`LDAP_USER_SEARCH_BASE`)* | Base DN for group search, if different from the user search base |
 | `LDAP_STAFF_GROUP` | — | Full DN of AD group whose members get `is_staff=True` |
 | `LDAP_SUPERUSER_GROUP` | — | Full DN of AD group whose members get `is_superuser=True` |
 | `LDAP_REQUIRE_GROUP` | — | Full DN of AD group — only members can log in (optional) |
 | `LDAP_START_TLS` | `False` | Set `True` to enable STARTTLS. Use `ldaps://` URI for direct TLS on port 636. |
+| `LDAP_LOG_LEVEL` | `WARNING` | Logging verbosity for the LDAP backend |
 
 Group membership is re-evaluated on every login — staff and superuser flags are kept
 in sync with AD group membership automatically.
