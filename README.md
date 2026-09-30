@@ -1,6 +1,8 @@
 # ophix-auth-ldap
 
-LDAP / Active Directory authentication plugin for [ophix-server-base](https://github.com/ophixproject/ophix-server-base).
+**Your fleet admin login shouldn't be a separate account from the one IT already manages in Active Directory.**
+
+Provisioning a standalone username/password for every operator — and remembering to revoke it when they leave — is exactly the kind of drift that turns into a security incident nobody notices for months. `ophix-auth-ldap` lets any [Ophix](https://ophix.io) server authenticate directly against your Active Directory or LDAP directory: staff and superuser access stay in sync with AD group membership automatically, re-evaluated on every login.
 
 Activated automatically when `LDAP_SERVER_URI` is set in `.env`. Uses AD defaults:
 `sAMAccountName` for user lookup, `NestedActiveDirectoryGroupType` for nested group
